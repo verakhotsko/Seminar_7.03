@@ -7,8 +7,7 @@ double Distance(int X1, int Y1, int X2, int Y2)
    int distY1Y2 = Y1 - Y2;
    int sumSquare = distX1X2 * distX1X2 + distY1Y2 * distY1Y2;
    double result = Math.Sqrt(sumSquare);
-   double resultRound = Math.Round(result, 2, MidpointRounding.ToZero);
-   return resultRound;
+   return result;
 }
 
 
@@ -25,4 +24,5 @@ Console.WriteLine("Координата Y: ");
 int coordY2 = Convert.ToInt32(Console.ReadLine());
 
 double distanse = Distance(coordX1, coordY1, coordX2, coordY2);
-Console.WriteLine(distanse);
+double distanseRound = Math.Round(distanse, 2, MidpointRounding.ToZero);
+Console.WriteLine(distanseRound);
