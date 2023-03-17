@@ -1,7 +1,7 @@
 ﻿// Пр-ма, которая на вход принимает пятизначное число и
 // проверяет, является ли оно палиндромом.
 
-bool Palindrom(int num)
+bool PalindromFiveDig(int num)
 {
     int fiveDig = num % 10;
     int firstDig = num / 10000;
@@ -17,7 +17,15 @@ bool Palindrom(int num)
     else return false;
 }
 
+
 Console.WriteLine("Введите целое пятизначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
-bool result = Palindrom(number);
-Console.WriteLine(result ? "ЯВЛЯЕТСЯ палиндромом" : "НЕ ЯВЛЯЕТСЯ палиндромом");
+if (number >= 10000 && number < 100000)
+{
+    bool result = PalindromFiveDig(number);
+    Console.WriteLine(result ? "ЯВЛЯЕТСЯ палиндромом" : "НЕ ЯВЛЯЕТСЯ палиндромом");
+}
+else 
+{
+    Console.WriteLine("Введенное число не пятизначное. Введите другое."); 
+}
