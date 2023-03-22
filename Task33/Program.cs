@@ -43,15 +43,15 @@ bool SearchNum(int num, int[] arr)
     return false;
 }
 
-Console.Write("Введите минимальное число диапазона массива: ");
-int minRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите максимальное число диапазона массива: ");
-int maxRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите необходимое количество элементов в массиве: ");
-int count = Convert.ToInt32(Console.ReadLine());
+//Console.Write("Введите минимальное число диапазона массива: ");
+//int minRange = Convert.ToInt32(Console.ReadLine());
+//Console.Write("Введите максимальное число диапазона массива: ");
+//int maxRange = Convert.ToInt32(Console.ReadLine());
+//Console.Write("Введите необходимое количество элементов в массиве: ");
+//int count = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите число, которое необходимо найти в массиве: ");
 int number = Convert.ToInt32(Console.ReadLine());
-int[] array = CreateArray(count, minRange, maxRange);
+int[] array = CreateArray(10, -9, 8);                              //(count, minRange, maxRange);
 PrintArray(array);
 Console.WriteLine();
 bool result = SearchNum(number, array);
