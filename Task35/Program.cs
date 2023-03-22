@@ -30,12 +30,12 @@ void PrintArray(int[] arr)
 
 // метод, возвращающий количество двухзначных чисел в массиве:
 
-int CountTwoNumbers(int[]arr)
+int CountTwoNumbers(int[]arr, int min, int max)
 {
     int count = 0;
     for (int j = 0; j < arr.Length; j++)    
     {
-        if(arr[j] >= 10 && arr[j] < 100)
+        if(arr[j] >= min && arr[j] < max)
         {
             count += 1;
         }
@@ -46,4 +46,4 @@ int CountTwoNumbers(int[]arr)
 int[] array = CreateArray(123, 1, 200);                            
 PrintArray(array);
 Console.WriteLine();
-Console.WriteLine($"Количество цифр в заданном диапазоне: {CountTwoNumbers(array)}");
+Console.WriteLine($"Количество цифр в заданном диапазоне: {CountTwoNumbers(array, 10, 99)}");
