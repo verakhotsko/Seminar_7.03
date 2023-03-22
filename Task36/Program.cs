@@ -3,24 +3,28 @@
 
 // метод, заполняющий массив:
 
-void FillArray(int[]num, int num1, int num2)
+int[] CreateArray(int size, int min, int max)
 {
-    int length = num.Length;
-    for(int i = 0; i < length; i ++)
+    int[] arr = new int[size];
+    Random rnd = new Random();
+    for (int i = 0; i < arr.Length; i++)
     {
-        num[i] = new Random().Next(num1, num2);
+        arr[i] = rnd.Next(min, max + 1);
     }
+    return arr;
 }
 
 // метод, выводящий массив:
 
-void PrintArray(int[]numb)
+void PrintArray(int[]arr)
 {
-    int count = numb.Length;
-    for(int j = 0; j < count; j ++)
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write(numb[j] + " ");
+        if(i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        else Console.Write($"{arr[i]}");
     }
+    Console.Write("]");
 }
 
 // метод, находящий сумму элементов на нечётной позиции:
@@ -40,13 +44,12 @@ int SumNotEvenNum(int[]number)
 
 // сама программа:
 
-Console.Write("Введите минимальное число диапазона массива: ");
-int minRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите максимальное число диапазона массива: ");
-int maxRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите необходимое количество элементов в массиве: ");
-int count = Convert.ToInt32(Console.ReadLine());
-int []array = new int [count];
-FillArray(array, minRange, maxRange);
-PrintArray(array);
-Console.WriteLine($"Сумма чисел, стоящих на нечётных позициях равна {SumNotEvenNum(array)}.");
+int[] array = CreateArray(12, -8, 10);                                           //Console.Write("Введите минимальное число диапазона массива: ");
+PrintArray(array);                                                               //int minRange = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();                                                             //Console.Write("Введите максимальное число диапазона массива: ");
+Console.WriteLine($"Сумма чисел с нечётными индексами:{SumNotEvenNum(array)}."); //int maxRange = Convert.ToInt32(Console.ReadLine());
+                                                                                 //Console.Write("Введите необходимое количество элементов в массиве: ");
+                                                                                 //int count = Convert.ToInt32(Console.ReadLine());
+                                                                                 //int []array = new int [count]; 
+
+
