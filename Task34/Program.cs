@@ -1,34 +1,37 @@
 ﻿// Задайте массив заполненный случайными положительными трёхзначными числами. 
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 
-// метод, заполняющий массив:
-
-void FillArray(int[] num, int num1, int num2)
+// метод, заполняющий массив положительными трёхзначными числами:
+int[] CreateArray(int size, int min, int max)
 {
-    int length = num.Length;
-    if (num1 >= 100 && num2 < 1000)
+    int[] arr = new int[size];
+    Random rnd = new Random();
+    if (min >= 100 && max < 1000)
     {
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < arr.Length; i++)
         {
-            num[i] = new Random().Next(num1, num2 + 1);
+            arr[i] = rnd.Next(min, max + 1);
         }
     }
+    return arr;
 }
 
 // метод выводящий массив:
 
-void PrintArray(int [] numb)
+void PrintArray(int[] arr)
 {
-    int dist = numb.Length;
-    for(int j = 0; j < dist; j++)
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write(numb[j] + " ");
+        if(i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        else Console.Write($"{arr[i]}");
     }
+    Console.Write("]");
 }
 
 // метод показывающий количество чётных чисел в массиве:
 
-int AmountEvenNum(int [] num)
+int AmountEvenNum(int[] num)
 {
     int length = num.Length;
     int amount = 0;
@@ -48,14 +51,11 @@ int AmountEvenNum(int [] num)
     return amount;
 }
 
-// сама программа:
-
-Console.Write("Введите минимальное положительное трёхзначное число желаемого диапазона массива: ");
-int minRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите максимальное положительное трёхзначное число желаемого диапазона массива: ");
-int maxRange = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество элементов желаемого массива: ");
-int[] array = new int[Convert.ToInt32(Console.ReadLine())];
-FillArray(array, minRange, maxRange);
-PrintArray(array);
-Console.WriteLine($"Количество чётных чисел в массиве: {AmountEvenNum(array)}");
+// сама программа:                                
+int[]array = CreateArray(20, 102, 875);                                          //Console.Write("Введите минимальное число диапазона массива: ");
+PrintArray(array);                                                               //int minRange = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();                                                             //Console.Write("Введите максимальное число диапазона массива: ");
+Console.WriteLine($"Количество чётных чисел в массиве: {AmountEvenNum(array)}"); //int maxRange = Convert.ToInt32(Console.ReadLine());
+                                                                                 //Console.Write("Введите необходимое количество элементов в массиве: ");
+                                                                                 //int count = Convert.ToInt32(Console.ReadLine());
+                                                                                 //int[] array = CreateArray(count, minRange, maxRange);
