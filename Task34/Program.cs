@@ -23,7 +23,7 @@ void PrintArray(int[] arr)
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
     {
-        if(i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
         else Console.Write($"{arr[i]}");
     }
     Console.Write("]");
@@ -41,18 +41,14 @@ int AmountEvenNum(int[] num)
         if (num[i] % 2 == 0)
         {
             amount = amount + 1;
-            i++;
         }
-        else
-        {
-            i++;
-        }
+        i++;
     }
     return amount;
 }
 
 // сама программа:                                
-int[]array = CreateArray(20, 102, 875);                                          //Console.Write("Введите минимальное число диапазона массива: ");
+int[] array = CreateArray(20, 102, 875);                                          //Console.Write("Введите минимальное число диапазона массива: ");
 PrintArray(array);                                                               //int minRange = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();                                                             //Console.Write("Введите максимальное число диапазона массива: ");
 Console.WriteLine($"Количество чётных чисел в массиве: {AmountEvenNum(array)}"); //int maxRange = Convert.ToInt32(Console.ReadLine());
