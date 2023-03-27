@@ -37,4 +37,27 @@ int[] array = CreateArray(10, 2, 12);
 PrintArray(array);
 Console.WriteLine();
 int[] copyArray = CopyArray(array);
+//copyArray[0] = 8;
 PrintArray(copyArray);
+Console.WriteLine();
+bool result = Equal(array, copyArray);
+Console.WriteLine(result ? "Равны" : "Не равны");
+
+// метод, проверяющий равны ли массивы поэлементно
+
+bool Equal(int[]arr1, int[]arr2)
+{
+    if(arr1.Length != arr2.Length)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < arr1.Length; i++)
+    {
+        if (arr1[i] != arr2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
