@@ -24,7 +24,15 @@ void PrintArray(int[]arr)
     }
     Console.Write("]");
 }
-Console.Write("Введите целое положительное число: ");
+Console.Write("Введите целое положительное число от 2 и больше: ");
 int number = Convert.ToInt32(Console.ReadLine());
-int[] array = FibonachiArr(number);
-PrintArray(array);
+if (number < 2)
+{
+    Console.WriteLine("Невозможно создать число Фибоначчи. Введите другое.");
+}
+else
+{
+    int[] array = FibonachiArr(number);
+    PrintArray(array);
+}
+
