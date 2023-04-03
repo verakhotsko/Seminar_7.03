@@ -29,5 +29,5 @@ void PrintMatrix(double[,] matrix)
     }
 }
 
-double[,] array2d = CreateMatrix(3, 7, -10,10);
+double[,] array2d = CreateMatrix(3, 7, -10, 10);
 PrintMatrix(array2d);
