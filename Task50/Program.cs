@@ -29,7 +29,7 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-// метод вывода элемента с заданной позицией
+// метод вывода элемента в двумерном массиве с заданной позицией 
 
 void PrintPositionElement(int[,] matrix, int num1, int num2)
 {
