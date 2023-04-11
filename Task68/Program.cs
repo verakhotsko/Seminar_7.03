@@ -1,39 +1,36 @@
 ﻿// Напишите программу вычисления функции Аккермана с помощью рекурсии. 
 // Даны два неотрицательных числа m и n.
 
-bool CheckPositivityNumber(int num)
+// метод проверки чисел на положительность:
+
+bool CheckPositivNum(int num)
 {
-    return num >= 0; //меньше 0 идут отрицательные числа
+    return num >= 0; 
 }
 
 int Ackerman(int num1, int num2)
 {
-    if (num1 == 0)
+    while (num1 != 0)
     {
-        return num2 + 1;
+        if (num2 == 0) num2 = 1;
+        else num2 = Ackerman(num1, num2 - 1);
+        num1 = num1 - 1;
     }
-    else if (num1 > 0 && num2 == 0)
-    {
-        return Ackerman(num1 - 1, 1);
-    }
-    else
-    {
-        return Ackerman(num1 - 1, Ackerman(num1, num2 - 1));
-    }
+    return num2 + 1;
 }
 
-Console.WriteLine("Введите первое положительное число");
+Console.Write("Введите положительное число m: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Введите второе положительное число");
+Console.Write("Введите положительное число n: ");
 int number2 = Convert.ToInt32(Console.ReadLine());
 
-if(CheckPositivityNumber(number1) && CheckPositivityNumber(number2))
+
+if(CheckPositivNum(number1) && CheckPositivNum(number2))
 {
-    int ackerman = Ackerman(number1, number2);
-    Console.WriteLine($"m = {number1}; n = {number2} -> A(m,n) -> {ackerman}");
+    int result = Ackerman(number1, number2);
+    Console.WriteLine($"m = {number1}; n = {number2} -> A(m,n) -> {result}");
 }
 else 
 {
-    Console.WriteLine("Введенные вами числа - не положительные");
+    Console.WriteLine("Введенные вами числа не положительные. Повторите ввод.");
 }
