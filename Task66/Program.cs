@@ -2,36 +2,37 @@
 // Напишите программу, которая найдёт сумму натуральных элементов 
 // в промежутке от M до N.
 
-bool CheckNaturalNumber(int num)
+// метод проверки числа на натуральность:
+
+bool CheckNaturalNum(int num)
 {
-    return num >= 1; //Найменьшее натуральное число = 1
+    return num >= 1;
 }
 
 int SumNumbers(int num1, int num2)
 {
-    if(num1 == num2) return num2;
+    if (num1 == num2) return num2;
     {
-        if(num1 < num2)
+        if (num1 < num2) 
         return num1 + SumNumbers(num1 + 1, num2);
-        else
+        else 
         return num1 + SumNumbers(num1 - 1, num2);
     }
 }
 
-Console.WriteLine("Введите натуральное значение M");
+Console.Write("Введите первое натуральное число: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Введите натуральное значение N");
+Console.Write("Введите второе натуральное число: ");
 int number2 = Convert.ToInt32(Console.ReadLine());
 
 int sumNumbers = SumNumbers(number1, number2);
 
-if(CheckNaturalNumber(number1) && CheckNaturalNumber(number2))
+if (CheckNaturalNum(number1) && CheckNaturalNum(number2))
 {
-    Console.WriteLine($"M = {number1}; N = {number2} -> {sumNumbers}");
+    Console.WriteLine($"Сумма чисел в промежутке от {number1} до {number2} равна {sumNumbers}");
 }
-else 
+else
 {
-    Console.WriteLine("Введенные вами числа - не натуральные");
+    Console.WriteLine("Введённые вами числа не натуральные. Повторите ввод.");
 }
 
