@@ -60,7 +60,7 @@ bool SizeTwoMatrix(int[,] matrix1, int[,] matrix2)
     }
 }
 
-int[,] array2d1 = CreateMatrix(3, 3, 1, 10);
+int[,] array2d1 = CreateMatrix(3, 2, 1, 10);
 PrintMatrix(array2d1);
 Console.WriteLine();
 int[,] array2d2 = CreateMatrix(3, 3, 1, 10);
