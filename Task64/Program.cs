@@ -14,7 +14,18 @@ void NaturalNumbers(int num)
     
 }
 
+// метод проверки чисел на положительность
+
+bool CheckPositivNum(int num)
+{
+    return num >= 0; 
+}
+
 Console.Write("Введите целое положительное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
-NaturalNumbers(number);
+if (CheckPositivNum(number))
+{
+    NaturalNumbers(number);
+}
+else Console.WriteLine("Введенное число не положительное. Повторите ввод.");
 
